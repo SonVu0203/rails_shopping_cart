@@ -1,0 +1,13 @@
+<% provide(:title, @shop.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="shops_info">
+      <h1>
+        <%= gravatar_for @shop, size: 80 %>
+        <%= @shop.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<p><%= link_to "Back", shops_url %></p>
+
