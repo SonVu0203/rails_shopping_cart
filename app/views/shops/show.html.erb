@@ -11,8 +11,9 @@
           <p class="card-text">Email: <%= @shop.email %> - Phone: <%= @shop.phone %></p>
           <p class="card-text"><small class="text-muted">Adress: <%= @shop.address %></small></p>
           <button type="button" class="btn btn-outline-primary"><%= link_to "Back", shops_url %></button>
-
-          <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_shop_url %></button>
+          <% if current_shop?(@shop) %>
+            <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_shop_url %></button>
+          <%end %>
         </div>
       </div>
     </div>
