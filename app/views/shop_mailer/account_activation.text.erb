@@ -1,0 +1,4 @@
+Hi <%= Shop.name %>
+Welcome to the Sample App! Plesea click on the link below to active account
+
+<%= edit_account_activation_url(@shop.activation_token, email: @shop.email) %>
