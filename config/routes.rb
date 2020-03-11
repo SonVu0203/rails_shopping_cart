@@ -10,7 +10,12 @@ Rails.application.routes.draw do
 
   root   'shops#new'
 
-  resources :shops
+  get '/products',             to: 'products#products'
+
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :shops do
+    resources :products
+  end
+  resources :products
 end

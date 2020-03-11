@@ -17,3 +17,12 @@ Shop.create!(name:  "Store 01",
              password_confirmation: "123456",
              activated: true,
              activated_at: Time.zone.now)
+
+shop = Shop.order(:id).take(5)
+
+10.times do
+  name = Faker::Device.model_name
+  description = Faker::Device.serial
+  price = Faker::Number.decimal(r_digits: 2)
+  shop.each { |shop| shop.products.create!(name: name, description: description, price: price)}
+end
