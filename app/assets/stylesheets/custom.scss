@@ -148,9 +148,18 @@ input {
 }
 
 .item-cart {
+  min-height: 150px;
   &:hover {
-    background-color: chartreuse;
+    background-color: #F5F6CE;
   }
+}
+
+.text-pink {
+  color: $light-pink;
+}
+
+.text-green {
+  color: $light-green;
 }
 
 

@@ -1,0 +1,28 @@
+<% provide(:title, 'Products By Shop') %>
+<h1 class="title"> <span class="text-green">Products</span> of <span class="text-pink"><%= @shop.name %></span></h1>
+<button class="btn btn-outline-primary"><%= link_to 'New Product', new_product_url %></button>
+
+<div class="row mt-5">
+  <% @products.each do |p| %>
+    <div class="col-sm-4">
+      <div class="card mb-3 item-cart">
+        <div class="row no-gutters">
+          <div class="col-md-5 shop-cart">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title"><%= p.name %> - <%= p.id %></h5>
+              <p class="card-text">Price: <%= p.price %></p>
+              <p class="card-text"><small class="text-muted">Description: <%= p.description %></small></p>
+<!--              <button type="button" class="btn btn-outline-success"><%#= link_to 'Detail', shop_product_path(p, shop_id: @shop.id) %></button>-->
+              <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', p %></button>
+              <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', p, method: :delete, data: { confirm: "Are you want delete product"} %></button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
