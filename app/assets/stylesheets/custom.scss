@@ -4,10 +4,12 @@
 $light-gray: #777;
 $light-pink: deeppink;
 $light-white: white;
+$light-blue: blue;
+$light-green: green;
 
-body {
-  padding-top: 60px;
-}
+//body {
+//  padding-top: 60px;
+//}
 
 section {
   overflow: auto;
@@ -62,9 +64,19 @@ p {
     text-decoration: none;
   }
 }
+.title {
+  font-size: 3em;
+  color: $light-blue;
+  text-transform: uppercase;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: $light-green;
+    text-decoration: none;
+  }
+}
 
 /* sidebar page detail user*/
-
 aside {
   section.shop_info {
     margin-top: 20px;
@@ -130,18 +142,15 @@ input {
   }
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
+.shop-cart {
+  display: flex;
+  padding: 10px !important;
 }
 
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
+.item-cart {
+  &:hover {
+    background-color: chartreuse;
+  }
 }
 
 

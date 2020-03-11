@@ -1,0 +1,19 @@
+<%= provide(:title, "Login") %>
+<h1 class="title">Login</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <!--    should use form_for for login instead of form_with because if use form_for, when submid button with render 'new' will show debug to see-->
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control mb-3' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control mb-3' %>
+
+      <%= f.submit "Log in", class: "btn btn-primary mb-3" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>
+
