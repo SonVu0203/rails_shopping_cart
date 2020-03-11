@@ -1,0 +1,9 @@
+<h1> Active Email</h1>
+
+<p>Hi <%= @shop.name %></p>
+
+<p><%= @shop.email %></p>
+
+<p>Welcome to the Sample App! Plesea click on the link below to active account</p>
+
+<%= link_to "Active", edit_account_activation_url(@shop.activation_token, email: @shop.email) %>

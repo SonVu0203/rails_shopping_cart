@@ -24,8 +24,9 @@ class ShopsController < ApplicationController
     # debugger
     if @shop.save
       log_in(@shop)
-      flash[:success] = "Welcome to the Shop Cart"
-      redirect_to @shop
+      ShopMailer.account_activation(@shop).deliver_now
+      flash[:info] = "Please check your email to activate your shop."
+      redirect_to root_url
     else
       render 'new'
     end
