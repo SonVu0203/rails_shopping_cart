@@ -1,4 +1,7 @@
 class ShopsController < ApplicationController
+  before_action :logged_in_shop, only: [:index, :edit, :update]
+  before_action :correct_shop, only: [:edit, :update]
+
 
   def index
     @shop = Shop.order(id: :asc).all
@@ -13,18 +16,44 @@ class ShopsController < ApplicationController
   end
 
   def edit
+    @shop = Shop.find(params[:id])
   end
 
   def create
     @shop = Shop.new(shop_params)
     # debugger
     if @shop.save
+      log_in(@shop)
       flash[:success] = "Welcome to the Shop Cart"
       redirect_to @shop
     else
-      render "new"
+      render 'new'
     end
   end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update_attributes(shop_params)
+      flash[:success] = "Profile is update"
+      redirect_to @shop
+    else
+      render 'edit'
+    end
+  end
+
+  def logged_in_shop
+    unless logged_in?
+      flash[:danger] = "please log in"
+      redirect_to login_url
+    end
+  end
+
+  # Confirms the correct user.
+  def correct_shop
+    @shop = Shop.find(params[:id])
+    redirect_to(root_url) unless current_shop?(@shop)
+  end
+
 
   private
     def shop_params

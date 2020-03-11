@@ -3,28 +3,28 @@
     <%= form_with(model: shop, local: true) do |f| %>
       <%= render 'shared/error_messages' %>
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control mb-3' %>
 
       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control mb-3' %>
 
       <%= f.label :phone %>
-      <%= f.text_field :phone, class: 'form-control' %>
+      <%= f.text_field :phone, class: 'form-control mb-3' %>
 
       <%= f.label :address %>
-      <%= f.text_field :address, class: 'form-control' %>
+      <%= f.text_field :address, class: 'form-control mb-3' %>
 
       <%= f.label :description %>
-      <%= f.text_field :description, class: 'form-control' %>
+      <%= f.text_field :description, class: 'form-control mb-3' %>
 
       <%= f.label :tax_code %>
-      <%= f.text_field :tax_code, class: 'form-control' %>
+      <%= f.text_field :tax_code, class: 'form-control mb-3' %>
 
       <%= f.label :password, "Password" %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control mb-3' %>
 
       <%= f.label :password_confirmation, "Confirmation Password" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control mb-3' %>
 
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>

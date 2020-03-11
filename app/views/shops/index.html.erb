@@ -1,37 +1,26 @@
 <% provide(:title, 'All Shops') %>
-<h1> Shop </h1>
-<button class="btn btn-outline-primary"><%= link_to 'New User', new_shop_path %></button>
-
-<table class="table mt-5">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col">Email</th>
-    <th scope="col">Image</th>
-    <th scope="col">Phone</th>
-    <th scope="col">Address</th>
-    <th scope="col">Tax_code</th>
-    <th scope="col"></th>
-  </tr>
-  </thead>
-  <tbody>
+<h1 class="title"> All Shop </h1>
+<button class="btn btn-outline-primary"><%= link_to 'New Shop', new_shop_path %></button>
+<div class="row mt-5">
   <% @shop.each do |shop| %>
-    <tr>
-      <td><%= shop.id %></td>
-      <td><%= shop.name %></td>
-      <td><%= shop.email %></td>
-      <td><%= gravatar_for shop, size: 40 %></td>
-      <td><%= shop.phone %></td>
-      <td><%= shop.address %></td>
-      <td><%= shop.tax_code %></td>
-
-      <td>
-        <button type="button" class="btn btn-success"><%= link_to 'Show', shop %></button>
-        <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_shop_path(shop) %></button>
-      </td>
-    </tr>
+    <div class="col-sm-4">
+      <div class="card mb-3 item-cart">
+        <div class="row no-gutters">
+          <div class="col-md-5 shop-cart">
+            <%= gravatar_for shop, size: 110 %>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title"><%= shop.name %> - <%= shop.id %></h5>
+              <p class="card-text">Email: <%= shop.email %> - Phone: <%= shop.phone %></p>
+              <p class="card-text"><small class="text-muted">Adress: <%= shop.address %></small></p>
+              <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', shop %></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>
+
 <%#= will_paginate %>
