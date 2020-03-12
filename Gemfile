@@ -6,8 +6,15 @@ ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'bootstrap-sass', '3.3.7'
+
+#-------- ma hoa password hoac new token
 gem 'bcrypt',         '3.1.12'
+
+#-------- create db test
 gem 'faker',          '2.10.2'
+
+#--------  update avatar
+gem 'carrierwave', '~> 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
