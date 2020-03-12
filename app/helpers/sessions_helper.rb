@@ -4,6 +4,10 @@ module SessionsHelper
     session[:shop_id] = shop.id
   end
 
+  # return true if product, category belong to shop
+  def check_shop_id?(shop_id)
+    shop_id == current_shop.id
+  end
   # Returns true if the given shop is the current shop.
   def current_shop?(shop)
     shop == current_shop

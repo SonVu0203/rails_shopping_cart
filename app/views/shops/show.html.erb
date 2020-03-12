@@ -1,20 +1,23 @@
 <% provide(:title, @shop.name) %>
-<div class="row">
-  <div class="card mb-3">
-    <div class="row no-gutters">
-      <div class="col-md-5 shop-cart">
-        <%= gravatar_for @shop, size: 110 %>
-      </div>
-      <div class="col-md-7">
-        <div class="card-body">
-          <h5 class="card-title"><%= @shop.name %> - <%= @shop.id %></h5>
-          <p class="card-text">Email: <%= @shop.email %> - Phone: <%= @shop.phone %></p>
-          <p class="card-text"><small class="text-muted">Adress: <%= @shop.address %></small></p>
-          <button type="button" class="btn btn-outline-info"><%= link_to "Back", shops_url %></button>
-          <button type="button" class="btn btn-outline-success"><%= link_to "Products", shop_products_url(@shop) %></button>
-          <% if current_shop?(@shop) %>
-            <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_shop_url %></button>
-          <%end %>
+<div class="container">
+  <div class="row">
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-5 shop-cart">
+          <%= gravatar_for @shop, size: 110 %>
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h5 class="card-title"><%= @shop.name %> - <%= @shop.id %></h5>
+            <p class="card-text">Email: <%= @shop.email %> - Phone: <%= @shop.phone %></p>
+            <p class="card-text"><small class="text-muted">Adress: <%= @shop.address %></small></p>
+            <button type="button" class="btn btn-outline-info"><%= link_to "Back", shops_url %></button>
+            <button type="button" class="btn btn-outline-success"><%= link_to "Products", shop_products_url(@shop) %></button>
+            <button type="button" class="btn btn-outline-success"><%= link_to "Categories", shop_categories_url(@shop) %></button>
+            <% if current_shop?(@shop) %>
+              <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_shop_url %></button>
+            <%end %>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,24 @@
+<% provide(:title, 'Category') %>
+
+<div class="container">
+  <div class="row">
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-5 shop-cart">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
+        </div>
+        <div class="col-md-7 shop-cart">
+          <div class="card-body">
+            <h5 class="card-title text-pink"><%= @category.name %> - <%= @category.id %></h5>
+            <div class="mt-5">
+              <button type="button" class="btn btn-outline-info"><%= link_to "Back", shop_categories_url(@category.shop_id) %></button>
+              <% if check_shop_id?(@category.shop_id) %>
+                <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_category_url(@category) %></button>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

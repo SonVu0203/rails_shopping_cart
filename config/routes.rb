@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :shops do
     resources :products
+    resources :categories
   end
   resources :products
+  resources :categories
 end

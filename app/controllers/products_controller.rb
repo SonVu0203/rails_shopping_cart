@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @shop_id = current_shop.id
   end
 
   def edit
