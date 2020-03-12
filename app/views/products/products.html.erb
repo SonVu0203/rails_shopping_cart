@@ -7,7 +7,11 @@
       <div class="card mb-3 item-cart">
         <div class="row no-gutters">
           <div class="col-md-5 shop-cart">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
+            <% if p.images.length > 0 %>
+              <img src="<%= p.images[0].img_src %>" width="100px" >
+            <% else %>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
+            <%end %>
           </div>
           <div class="col-md-7">
             <div class="card-body">
