@@ -1,0 +1,7 @@
+<% provide(:title, 'Edit Category') %>
+<% provide(:button_text, 'Save') %>
+
+<h1 class="sign-up center title">Edit Category</h1>
+<button type="button" class="btn btn-light"><%= link_to "Back", category_url(@category.id) %></button>
+
+<%= render "form", category: @category %>

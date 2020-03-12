@@ -1,5 +1,6 @@
 class Shop < ApplicationRecord
   has_many :products, dependent: :destroy
+  has_many :categories, dependent: :destroy
   attr_accessor :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest

@@ -1,6 +1,6 @@
 <% provide(:title, @product.name) %>
-<div class="container">
-  <div class="row">
+<div class="row">
+  <div class="col-md-4">
     <div class="card mb-3">
       <div class="row no-gutters">
         <div class="col-md-5 shop-cart">
@@ -12,7 +12,9 @@
             <p class="card-text">Price: <%= @product.price %></p>
             <p class="card-text"><small class="text-muted">Description: <%= @product.description %></small></p>
             <button type="button" class="btn btn-outline-info"><%= link_to "Back", shop_products_url(@product.shop_id) %></button>
-            <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_product_url %></button>
+            <% if check_shop_id?(@product.shop_id) %>
+              <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_product_url %></button>
+            <% end %>
           </div>
         </div>
       </div>

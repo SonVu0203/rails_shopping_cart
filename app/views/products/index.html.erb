@@ -1,6 +1,7 @@
 <% provide(:title, 'Products By Shop') %>
 <h1 class="title"> <span class="text-green">Products</span> of <span class="text-pink"><%= @shop.name %></span></h1>
-<button class="btn btn-outline-primary"><%= link_to 'New Product', new_product_url %></button>
+<button class="btn btn-outline-info"><%= link_to 'New Product', new_product_url %></button>
+<button type="button" class="btn btn-light"><%= link_to "Back", shop_url(@shop.id) %></button>
 
 <div class="row mt-5">
   <% @products.each do |p| %>
@@ -17,8 +18,9 @@
               <p class="card-text"><small class="text-muted">Description: <%= p.description %></small></p>
 <!--              <button type="button" class="btn btn-outline-success"><%#= link_to 'Detail', shop_product_path(p, shop_id: @shop.id) %></button>-->
               <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', p %></button>
-              <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', p, method: :delete, data: { confirm: "Are you want delete product"} %></button>
-
+              <% if check_shop_id?(p.shop_id) %>
+                <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', p, method: :delete, data: { confirm: "Are you want delete product"} %></button>
+              <% end %>
             </div>
           </div>
         </div>
