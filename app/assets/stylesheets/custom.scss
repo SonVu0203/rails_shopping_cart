@@ -162,4 +162,16 @@ input {
   color: $light-green;
 }
 
+.title-cart {
+  font-size: 2em;
+  color: $light-blue;
+  text-transform: uppercase;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: $light-green;
+    text-decoration: none;
+  }
+}
+
 

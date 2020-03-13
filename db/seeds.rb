@@ -17,7 +17,8 @@ Shop.create!(name:  "Store 01",
              password_confirmation: "123456",
              activated: true,
              activated_at: Time.zone.now)
-2.times do |n|
+# ---------- render shop
+1.times do |n|
   name = "Store#{Faker::Number.decimal_part(digits: 2)}"
   email = "store#{n+1}@gmail.com"
   phone = "09#{Faker::Number.number(digits: 8)}"
@@ -28,20 +29,25 @@ Shop.create!(name:  "Store 01",
 
   Shop.create!(name: name, email: email, phone: phone, address: address, description: description, tax_code: tax_code, password: password, password_confirmation: password)
 end
+# ---------- render product
 
 shops = Shop.order(:id).take(5)
 
 10.times do
   name = Faker::Device.model_name
-  description = Faker::Device.serial
+  description = Faker::Number.hexadecimal(digits: 10)
   price = Faker::Number.decimal(r_digits: 2)
   shops.each { |shop| shop.products.create!(name: name, description: description, price: price)}
 end
 
-10.times do
+# ---------- render category
+
+5.times do
   name = Faker::Device.manufacturer
   shops.each { |shop| shop.categories.create!(name: name)}
 end
+
+# ---------- render image for product
 
 products = Product.order(:id)
 
@@ -49,3 +55,11 @@ products = Product.order(:id)
   img_src = "https://shop.smartone.com/handset/large/MWD92ZAA_1.jpg"
   products.each { |p| Image.create!(imageable: p, img_src: img_src)}
 end
+
+# ---------- render product for category
+categories = Category.order(:id).take(3)
+6.times do
+  categories.each { |p| ProductsCategory.create!(product_id: "#{Faker::Number.between(from: 1, to: 10)}", category_id: p.id)}
+end
+
+
