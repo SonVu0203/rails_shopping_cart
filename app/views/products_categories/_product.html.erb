@@ -1,0 +1,21 @@
+<div class="col-md-4">
+  <div class="card mb-3 item-cart">
+    <div class="row no-gutters">
+      <div class="col-md-5 shop-cart">
+        <% if product.images.length > 0 %>
+          <img src="<%= product.images[0].img_src %>" width="100px" >
+        <% else %>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
+        <%end %>
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title"><b><%= product.name %> - <%= product.id %> </b></h5>
+          <p class="card-text">Price: <%= product.price %></p>
+          <p class="card-text"><small class="text-muted">Description: <%= product.description %></small></p>
+          <button type="button" class="btn btn-outline-info"><%= link_to "Detail", product %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

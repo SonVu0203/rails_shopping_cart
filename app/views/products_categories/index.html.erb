@@ -1,0 +1,20 @@
+<% provide(:title, 'Home') %>
+<h1 class="title"> <span class="text-green">By Sơn Vũ</span></h1>
+<% @categories.each do |c| %>
+  <div class="row mt-5">
+    <div class="container">
+        <div class="card">
+          <div class="card-header bg-info">
+            <p class="title-cart"><%= c.name %> - <%= c.id %></p>
+          </div>
+          <div class="card-body">
+            <%  c.products.each do |p| %>
+                <%= render "products_categories/product", product: p %>
+            <%end %>
+          </div>
+        </div>
+    </div>
+  </div>
+<% end %>
+
+

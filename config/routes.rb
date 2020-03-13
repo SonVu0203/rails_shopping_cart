@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post   '/login',            to: 'sessions#create'
   delete '/logout',           to: 'sessions#destroy'
 
-  root   'shops#new'
+  root 'products_categories#index'
 
   get '/products',             to: 'products#products'
 
@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   end
   resources :products
   resources :categories
+
+  resources :products_categories, only: [:index]
 end

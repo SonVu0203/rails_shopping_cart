@@ -1,7 +1,29 @@
+# == Schema Information
+#
+# Table name: shops
+#
+#  id                :bigint           not null, primary key
+#  activated         :boolean          default(FALSE)
+#  activated_at      :datetime
+#  activation_digest :string
+#  address           :string
+#  description       :text
+#  email             :string
+#  name              :string
+#  password_digest   :string
+#  phone             :string
+#  reset_digest      :string
+#  reset_sent_at     :datetime
+#  tax_code          :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
 class Shop < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :categories, dependent: :destroy
   attr_accessor :activation_token, :reset_token
+
   before_save :downcase_email
   before_create :create_activation_digest
 
