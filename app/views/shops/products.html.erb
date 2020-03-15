@@ -1,5 +1,6 @@
 <% provide(:title, 'Products') %>
-<h1 class="title">Products</h1>
+<h1 class="title"> <span class="text-green">Categories</span> of <span class="text-pink"><%= @shop.name %></span></h1>
+<button type="button" class="btn btn-outline-info"><%= link_to 'Black', shop_path(@shop.id) %></button>
 
 <div class="row mt-5">
   <% @products.each do |p| %>
@@ -18,7 +19,6 @@
               <h5 class="card-title"><%= p.name %> - <%= p.id %></h5>
               <p class="card-text">Price: <%= p.price %></p>
               <p class="card-text"><small class="text-muted">Description: <%= p.description %></small></p>
-              <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', p %></button>
             </div>
           </div>
         </div>
@@ -26,3 +26,7 @@
     </div>
   <% end %>
 </div>
+<div class="row">
+  <h5>  <%= paginate @products %> </h5>
+</div>
+

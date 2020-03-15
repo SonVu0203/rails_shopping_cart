@@ -10,16 +10,17 @@ Rails.application.routes.draw do
 
   root 'products_categories#index'
 
-  get '/products',             to: 'products#products'
-
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :shops do
-    resources :products
-    resources :categories
+    # collection do  -> new xai then nay thi se la shops/products
+    member do    # -> shops/id/products
+      get :products
+      get :categories
+    end
   end
   resources :products
   resources :categories
 
-  resources :products_categories, only: [:index]
+  resources :products_categories
 end

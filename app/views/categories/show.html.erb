@@ -11,8 +11,8 @@
           <div class="card-body">
             <h5 class="card-title text-pink"><%= @category.name %> - <%= @category.id %></h5>
             <div class="mt-5">
-              <button type="button" class="btn btn-outline-info"><%= link_to "Back", shop_categories_url(@category.shop_id) %></button>
-              <% if check_shop_id?(@category.shop_id) %>
+              <% if check_shop_is_loggin?(current_shop) %>
+                <button type="button" class="btn btn-outline-info"><%= link_to "Back", categories_path %></button>
                 <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_category_url(@category) %></button>
               <% end %>
             </div>
@@ -20,5 +20,17 @@
         </div>
       </div>
     </div>
+    <div class="ml-5">
+<!--      <button type="button" class="btn btn-outline-info"><%#= link_to 'Add Product', '#' %></button>-->
+    </div>
   </div>
+  <div class="row">
+    <h1> <span class="text-pink">Products</span> of Category <span class="text-green"> <%= @category.name %></span></h1>
+  </div>
+</div>
+
+<div class="row">
+  <% @products.each do |p| %>
+    <%= render "categories/product", product: p %>
+  <% end %>
 </div>

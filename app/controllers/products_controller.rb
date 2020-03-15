@@ -1,12 +1,8 @@
 class ProductsController < ApplicationController
-
-  def products
-    @products = Product.all
-  end
+  before_action :logged_in_shop, only: [:edit, :update, :destroy]
 
   def index
-    @products = Shop.find(params[:shop_id]).products
-    @shop = Shop.find(params[:shop_id])
+    @products = Product.all.page(params[:page]).per(5)
     # debugger
   end
 
@@ -17,6 +13,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @shop_id = current_shop.id
+    @categories = current_shop.categories
   end
 
   def edit
@@ -25,10 +22,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_shop.products.build(product_params)
-    # debugger
     if @product.save
       flash[:success] = "New Product success!"
-      redirect_to shop_products_url(current_shop.id)
+      redirect_to products_path
     else
       render 'new'
     end
@@ -47,11 +43,18 @@ class ProductsController < ApplicationController
   def destroy
     Product.find(params[:id]).destroy
     flash[:success] = "Product is deleted"
-    redirect_to shop_products_url(current_shop.id)
+    redirect_to products_path
+  end
+
+  def logged_in_shop
+    unless logged_in?
+      flash[:danger] = "please log in"
+      redirect_to login_url
+    end
   end
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price, :category_ids)
   end
 end

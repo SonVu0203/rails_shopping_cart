@@ -5,8 +5,12 @@ module SessionsHelper
   end
 
   # return true if product, category belong to shop
-  def check_shop_id?(shop_id)
-    shop_id == current_shop.id
+  def check_shop_is_loggin?(shop)
+    if shop
+      return true
+    else
+      return false
+    end
   end
   # Returns true if the given shop is the current shop.
   def current_shop?(shop)

@@ -4,15 +4,19 @@
     <div class="card mb-3">
       <div class="row no-gutters">
         <div class="col-md-5 shop-cart">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
+          <% if @product.images.length > 0 %>
+            <img src="<%= @product.images[0].img_src %>" width="100px" >
+          <% else %>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
+          <%end %>
         </div>
         <div class="col-md-7">
           <div class="card-body">
             <h5 class="card-title"><b><%= @product.name %> - <%= @product.id %> </b></h5>
             <p class="card-text">Price: <%= @product.price %></p>
             <p class="card-text"><small class="text-muted">Description: <%= @product.description %></small></p>
-            <button type="button" class="btn btn-outline-info"><%= link_to "Back", shop_products_url(@product.shop_id) %></button>
-            <% if check_shop_id?(@product.shop_id) %>
+            <button type="button" class="btn btn-outline-info"><%= link_to "Back", products_path %></button>
+            <% if check_shop_is_loggin?(current_shop) %>
               <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_product_url %></button>
             <% end %>
           </div>

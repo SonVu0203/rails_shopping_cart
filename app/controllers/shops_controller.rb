@@ -56,6 +56,17 @@ class ShopsController < ApplicationController
     redirect_to(root_url) unless current_shop?(@shop)
   end
 
+  # get products to shop
+  def products
+    @products = Shop.find(params[:id]).products.page(params[:page]).per(5)
+    @shop = Shop.find(params[:id])
+  end
+
+  # get catgories to shop
+  def categories
+    @categories = Shop.find(params[:id]).categories.page(params[:page]).per(5)
+    @shop = Shop.find(params[:id])
+  end
 
   private
     def shop_params

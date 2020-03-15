@@ -17,6 +17,9 @@ gem 'faker',          '2.10.2'
 #--------  update avatar
 gem 'carrierwave', '~> 2.0'
 
+#-------- phan trang
+gem 'kaminari-bootstrap'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

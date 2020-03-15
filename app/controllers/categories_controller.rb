@@ -1,12 +1,13 @@
 class CategoriesController < ApplicationController
+  before_action :logged_in_shop, only: [:edit, :update, :destroy]
 
   def index
-    @categories = Shop.find(params[:shop_id]).categories
-    @shop = Shop.find(params[:shop_id])
+    @categories = Category.all
   end
 
   def show
     @category= Category.find(params[:id])
+    @products = @category.products
   end
 
   def new
@@ -39,9 +40,22 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    Category.find(params[:id]).destroy
+    flash[:success] = "Category is deleted"
+    redirect_to categories_path
+  end
+
+  def logged_in_shop
+    unless logged_in?
+      flash[:danger] = "please log in"
+      redirect_to login_url
+    end
+  end
+
   private
 
-  def category_params
-    params.require(:category).permit(:name)
-  end
+    def category_params
+      params.require(:category).permit(:name)
+    end
 end

@@ -2,6 +2,6 @@
 <% provide(:button_text, 'Create') %>
 
 <h1 class="sign-up center title">New Category</h1>
-<button type="button" class="btn btn-light"><%= link_to "Back", shop_categories_url(@shop_id) %></button>
+<button type="button" class="btn btn-light"><%= link_to "Back", categories_shop_path(@shop_id) %></button>
 
 <%= render "form", category: @category %>

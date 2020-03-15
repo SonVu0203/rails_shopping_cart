@@ -1,7 +1,6 @@
 <% provide(:title, 'Categories') %>
-<h1 class="title"> <span class="text-green">Categories</span> of <span class="text-pink"><%= @shop.name %></span></h1>
+<h1 class="title"> <span class="text-green">Categories</span></h1>
 <button class="btn btn-outline-primary"><%= link_to 'New Category', new_category_url %></button>
-<button type="button" class="btn btn-light"><%= link_to "Back", shop_url(@shop.id) %></button>
 
 <table class="table mt-5">
   <thead>
@@ -18,9 +17,9 @@
       <td><%= c.name %></td>
       <td>
         <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', c %></button>
-        <% if check_shop_id?(@shop.id) %>
-          <button type="button" class="btn btn-outline-danger"><%= link_to "Delete", c, method: :delete, data: { comfirm: "Are you want delete user?" } %></button>
-        <% end %>
+        <% if check_shop_is_loggin?(current_shop) %>
+          <button type="button" class="btn btn-outline-danger"><%= link_to "Delete", c, method: :delete, data: { confirm: "Are you want delete user?" } %></button>
+      <% end %>
       </td>
     </tr>
   <% end %>
