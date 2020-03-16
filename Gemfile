@@ -20,6 +20,8 @@ gem 'carrierwave', '~> 2.0'
 #-------- phan trang
 gem 'kaminari-bootstrap'
 
+gem 'twitter-typeahead-rails'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -69,9 +71,9 @@ group :test do
   gem 'webdrivers'
 end
 
-group :production do
-  gem 'pg', '0.20.0'
-end
+# group :production do
+#   gem 'pg', '0.20.0'
+# end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

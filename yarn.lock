@@ -3824,6 +3824,11 @@ jest-worker@^25.1.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
+jquery@>=1.7, jquery@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.npm.taobao.org/jquery/download/jquery-3.4.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjquery%2Fdownload%2Fjquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  integrity sha1-cU8fjZ3eS9+lV2S6N+8hRjDYDvI=
+
 js-base64@^2.1.8:
   version "2.5.2"
   resolved "https://registry.npm.taobao.org/js-base64/download/js-base64-2.5.2.tgz#313b6274dda718f714d00b3330bbae6e38e90209"
@@ -6961,6 +6966,13 @@ type-is@~1.6.17, type-is@~1.6.18:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.24"
+
+typeahead.js@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.npm.taobao.org/typeahead.js/download/typeahead.js-0.11.1.tgz#4e64e671b22310a8606f4aec805924ba84b015b8"
+  integrity sha1-TmTmcbIjEKhgb0rsgFkkuoSwFbg=
+  dependencies:
+    jquery ">=1.7"
 
 typedarray@^0.0.6:
   version "0.0.6"

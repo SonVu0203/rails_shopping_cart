@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :products_categories
+
+  get '/search',                to: 'products_categories#search'
 end
