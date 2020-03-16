@@ -11,7 +11,7 @@ class ProductsCategoriesController < ApplicationController
       flash[:warning] = "Empty field"
     else
       @name = params[:search].downcase
-      @products = Product.all.where("LOWER(name) LIKE :search", search: @name).page(params[:page]).per(5)
+      @products = Product.all.where("LOWER(name) LIKE :search", search: "%#{@name}%").page(params[:page]).per(5)
       if @products.length <=0
         flash[:warning] = "Product your find not exits!"
       end
