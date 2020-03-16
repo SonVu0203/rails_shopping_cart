@@ -1,7 +1,9 @@
 <% provide(:title, 'Edit Product') %>
 <% provide(:button_text, 'Save') %>
 
-<h1 class="sign-up center title">Edit Product</h1>
-<button type="button" class="btn btn-light"><%= link_to "Back", product_url(@product.id) %></button>
+<div class="container">
+  <h1 class="sign-up center title">Edit Product</h1>
+  <button type="button" class="btn btn-light"><%= link_to "Back", product_url(@product.id) %></button>
 
-<%= render "form", product: @product %>
+  <%= render "form", product: @product %>
+</div>

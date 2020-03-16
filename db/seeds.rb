@@ -43,7 +43,7 @@ end
 
 10.times do
   name = Faker::Device.model_name
-  description = Faker::Number.hexadecimal(digits: 10)
+  description = "Căn hộ 1 phòng ngủ Vinhomes Central Park"
   price = Faker::Number.decimal(r_digits: 2)
   category_ids = Faker::Number.between(from: 1, to: 5)
   shops.each { |shop| shop.products.create!(name: name, description: description, price: price, category_ids: category_ids)}
@@ -53,7 +53,7 @@ end
 products = Product.order(:id)
 
 1.times do
-  img_src = "https://shop.smartone.com/handset/large/MWD92ZAA_1.jpg"
+  img_src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQN_qcly4wZL66xPFC69LDkU_mB14WoCRcCiXG6pp-m7N0caOsy"
   products.each { |p| Image.create!(imageable: p, img_src: img_src)}
 end
 

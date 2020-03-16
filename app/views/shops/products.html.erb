@@ -1,32 +1,34 @@
 <% provide(:title, 'Products') %>
-<h1 class="title"> <span class="text-green">Categories</span> of <span class="text-pink"><%= @shop.name %></span></h1>
-<button type="button" class="btn btn-outline-info"><%= link_to 'Black', shop_path(@shop.id) %></button>
 
-<div class="row mt-5">
-  <% @products.each do |p| %>
-    <div class="col-sm-4">
-      <div class="card mb-3 item-cart">
-        <div class="row no-gutters">
-          <div class="col-md-5 shop-cart">
-            <% if p.images.length > 0 %>
-              <img src="<%= p.images[0].img_src %>" width="100px" >
-            <% else %>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
-            <%end %>
-          </div>
-          <div class="col-md-7">
-            <div class="card-body">
-              <h5 class="card-title"><%= p.name %></h5>
-              <p class="card-text">Price: <%= p.price %></p>
-              <p class="card-text"><small class="text-muted">Description: <%= p.description %></small></p>
+
+<div class="container mt-2">
+  <h1 class="title">Danh sách sản phẩm của cửa hàng: <span style="color: deeppink"><%= @shop.name %></span></h1>
+  <button type="button" class="btn btn-outline-info"><%= link_to 'Black', shop_path(@shop.id) %></button>
+
+  <div class="row mt-5">
+    <% @products.each do |product| %>
+      <div class="col-md-4 mb-5">
+        <div class="card item-cart">
+          <% if product.images.length > 0 %>
+            <img src="<%= product.images[0].img_src %>" class="w-100" >
+          <% else %>
+            <img src="https://freshome.com/wp-content/uploads/2018/09/contemporary-exterior.jpg" class="w-100">
+          <%end %>
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between">
+              <h5 class="card-title text-green"><b><%= product.name %></b></h5>
+              <p class="card-text"><b><span style="color: red">Price:</span> <%= product.price %> $ </b></p>
             </div>
+            <p class="card-text">Description: <%= product.description %>.</p>
+            <button type="button" class="btn btn-outline-info"><%= link_to "Detail", product %></button>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
-<div class="row">
-  <h5>  <%= paginate @products %> </h5>
+    <% end %>
+  </div>
+
+  <div style="display: flex; justify-content: center">
+    <h5><%= paginate @products %> </h5>
+  </div>
 </div>
 

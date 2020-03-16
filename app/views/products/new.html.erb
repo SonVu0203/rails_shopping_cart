@@ -1,7 +1,9 @@
 <% provide(:title, 'Register Product') %>
 <% provide(:button_text, 'Create') %>
 
-<h1 class="sign-up center title">New Product</h1>
-<button type="button" class="btn btn-light"><%= link_to "Back", products_shop_path(@shop_id) %></button>
+<div class="container">
+  <h1 class="sign-up center title">New Product</h1>
+  <button type="button" class="btn btn-light"><%= link_to "Back", products_shop_path(@shop_id) %></button>
 
-<%= render "form", product: @product, categories: @categories %>
+  <%= render "form", product: @product, categories: @categories %>
+</div>

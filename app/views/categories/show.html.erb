@@ -1,36 +1,16 @@
 <% provide(:title, 'Category') %>
-
-<div class="container">
-  <div class="row">
-    <div class="card mb-3">
-      <div class="row no-gutters">
-        <div class="col-md-5 shop-cart">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2p0pc61zxvtknfuyVWI9bq52xVPFO5v72h1CMDNJjPIejCgHQ" width="100px" >
-        </div>
-        <div class="col-md-7 shop-cart">
-          <div class="card-body">
-            <h5 class="card-title text-pink"><%= @category.name %> - <%= @category.id %></h5>
-            <div class="mt-5">
-              <% if check_shop_is_loggin?(current_shop) %>
-                <button type="button" class="btn btn-outline-info"><%= link_to "Back", categories_path %></button>
-                <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_category_url(@category) %></button>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ml-5">
-<!--      <button type="button" class="btn btn-outline-info"><%#= link_to 'Add Product', '#' %></button>-->
-    </div>
-  </div>
-  <div class="row">
-    <h1> <span class="text-pink">Products</span> of Category <span class="text-green"> <%= @category.name %></span></h1>
-  </div>
 </div>
+<div class="container">
+  <button type="button" class="btn btn-outline-info"><%= link_to "Back", categories_path %></button>
+  <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_category_url(@category) %></button>
 
-<div class="row">
-  <% @products.each do |p| %>
-    <%= render "categories/product", product: p %>
-  <% end %>
+  <h1 class="title">Category: <span style="color: deeppink"> <%= @category.name %></span> </h1>
+  <div class="row">
+    <h1> <span class="text-pink">Products</span> of <span class="text-green"> <%= @category.name %></span></h1>
+  </div>
+  <div class="row">
+    <% @products.each do |p| %>
+      <%= render "categories/product", product: p %>
+    <% end %>
+  </div>
 </div>
