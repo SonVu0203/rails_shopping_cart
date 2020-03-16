@@ -1,0 +1,13 @@
+<% provide(:title, 'Products') %>
+<h1 class="title text-green">Products</h1>
+
+<div class="row mt-5">
+  <% @products.each do |p| %>
+    <%= render "products_categories/product", product: p %>
+<% end %>
+</div>
+
+<div class="row">
+  <h5>  <%= paginate @products %> </h5>
+</div>
+

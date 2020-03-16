@@ -5,6 +5,4 @@ module ProductsCategoriesHelper
      return @category.name
   end
 
-
-
 end
