@@ -1,6 +1,6 @@
 <% provide(:title, 'Products By Shop') %>
 <h1 class="title text-green">Products</h1>
-<% if check_shop_is_loggin?(current_shop) %>
+<% if check_is_loggin?(current_login) == 0 %>
   <button class="btn btn-outline-info"><%= link_to 'New Product', new_product_url %></button>
 <% end %>
 
@@ -23,7 +23,10 @@
               <p class="card-text"><small class="text-muted">Description: <%= p.description %></small></p>
 <!--              <button type="button" class="btn btn-outline-success"><%#= link_to 'Detail', shop_product_path(p, shop_id: @shop.id) %></button>-->
               <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', p %></button>
-              <% if check_shop_is_loggin?(current_shop) %>
+              <% if check_is_loggin?(current_login) != 0 %>
+                <button type="button" class="btn btn-outline-danger"><%= link_to 'Add Cart', '#' %></button>
+              <% end %>
+              <% if check_is_loggin?(current_login) == 0 %>
                 <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', p, method: :delete, data: { confirm: "Are you want delete product"} %></button>
               <% end %>
             </div>

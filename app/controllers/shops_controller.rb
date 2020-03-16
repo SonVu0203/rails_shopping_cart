@@ -24,7 +24,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     # debugger
     if @shop.save
-      log_in(@shop)
+      log_in(@shop, @shop.type_shop)
       ShopMailer.account_activation(@shop).deliver_now
       flash[:info] = "Please check your email to activate your shop."
       redirect_to root_url
@@ -53,7 +53,7 @@ class ShopsController < ApplicationController
   # Confirms the correct user.
   def correct_shop
     @shop = Shop.find(params[:id])
-    redirect_to(root_url) unless current_shop?(@shop)
+    redirect_to(root_url) unless current_login?(@shop)
   end
 
   # get products to shop

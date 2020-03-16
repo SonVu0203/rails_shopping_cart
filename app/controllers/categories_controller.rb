@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-    @shop_id = current_shop.id
+    @shop_id = current_login.id
   end
 
   def edit
@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = current_shop.categories.build(category_params)
+    @category = current_login.categories.build(category_params)
     if @category.save
       flash[:success] = "New Category success!"
       redirect_to @category

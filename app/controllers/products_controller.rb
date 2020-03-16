@@ -12,8 +12,8 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @shop_id = current_shop.id
-    @categories = current_shop.categories
+    @shop_id = current_login.id
+    @categories = current_login.categories
   end
 
   def edit
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_shop.products.build(product_params)
+    @product = current_login.products.build(product_params)
     if @product.save
       flash[:success] = "New Product success!"
       redirect_to products_path

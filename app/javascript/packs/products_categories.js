@@ -31,14 +31,17 @@ var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
     'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
 ];
 
+$(document).ready(function(){
+    // $("#the-basics .typeahead").css("backgroundColor", "red")
+    $("#the-basics .typeahead").typeahead({
+        name: states,
+        source: []
+    })
+})
 
-// $(document).ready(function(){
-//     $('.typeahead').typeahead(null, {
-//         name: 'states',
-//         source: []
-//     });
-// });
 
-console.log(123, states)
+
+
+console.log(1234, states)
 
 

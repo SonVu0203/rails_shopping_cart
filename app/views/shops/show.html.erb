@@ -14,7 +14,7 @@
             <button type="button" class="btn btn-outline-info"><%= link_to "Back", shops_url %></button>
             <button type="button" class="btn btn-outline-success"><%= link_to "Products", products_shop_path(@shop) %></button>
             <button type="button" class="btn btn-outline-success"><%= link_to "Categories", categories_shop_path(@shop) %></button>
-            <% if current_shop?(@shop) %>
+            <% if current_login?(@shop) %>
               <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_shop_url %></button>
             <%end %>
           </div>

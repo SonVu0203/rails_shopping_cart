@@ -1,0 +1,24 @@
+<% provide(:title, 'All User') %>
+<h1 class="title"> All User </h1>
+<button class="btn btn-outline-primary"><%= link_to 'New User', new_user_path %></button>
+<div class="row mt-5">
+  <% @user.each do |user| %>
+    <div class="col-sm-4">
+      <div class="card mb-3 item-cart">
+        <div class="row no-gutters">
+          <div class="col-md-5 shop-cart">
+            <%= gravatar_for user, size: 110 %>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title"><%= user.name %></h5>
+              <p class="card-text">Email: <%= user.email %> - Phone: <%= user.phone %></p>
+              <p class="card-text"><small class="text-muted">Adress: <%= user.address %></small></p>
+              <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', user %></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

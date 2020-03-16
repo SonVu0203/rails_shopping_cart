@@ -7,8 +7,12 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("packs/typeahead.bundle")
-require("packs/products_categories")
+
+
+//= require twitter/typeahead
+//= require twitter/typeahead.min
+
+require("../packs/products_categories")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

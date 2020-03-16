@@ -11,7 +11,7 @@
           <div class="card-body">
             <h5 class="card-title text-pink"><%= @category.name %> - <%= @category.id %></h5>
             <div class="mt-5">
-              <% if check_shop_is_loggin?(current_shop) %>
+              <% if check_is_loggin?(current_login) == 0 %>
                 <button type="button" class="btn btn-outline-info"><%= link_to "Back", categories_path %></button>
                 <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_category_url(@category) %></button>
               <% end %>

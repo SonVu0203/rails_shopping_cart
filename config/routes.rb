@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get    '/signup',           to: 'shops#new'
+  get    '/shops/signup',           to: 'shops#new'
   get    '/login',            to: 'sessions#new'
   get 'password_resets/new'
   get 'password_resets/edit'
@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   resources :products_categories
 
   get '/search',                to: 'products_categories#search'
+
+  get    '/users/signup',           to: 'users#new'
+  resources :users
 end

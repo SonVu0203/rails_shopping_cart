@@ -15,6 +15,7 @@
 #  reset_digest      :string
 #  reset_sent_at     :datetime
 #  tax_code          :string
+#  type_login        :integer          default(0)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #

@@ -17,7 +17,7 @@
       <td><%= c.name %></td>
       <td>
         <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', c %></button>
-        <% if check_shop_is_loggin?(current_shop) %>
+        <% if check_is_loggin?(current_login) == 0 %>
           <button type="button" class="btn btn-outline-danger"><%= link_to "Delete", c, method: :delete, data: { confirm: "Are you want delete user?" } %></button>
       <% end %>
       </td>

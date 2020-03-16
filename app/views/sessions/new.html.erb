@@ -14,7 +14,11 @@
       <%= f.submit "Log in", class: "btn btn-primary mb-3" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <div class="d-flex">
+      <p>New shop? <%= link_to "Sign up now!", shops_signup_path %></p>
+      <p class="ml-5">New user? <%= link_to "Sign up now!", users_signup_path%></p>
+    </div>
+
   </div>
 </div>
 

@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create!(name:  "Son Vu",
+             email: "sonvu@gmail.com",
+             phone: "0987654321",
+             address: "tan tru",
+             password:              "123456",
+             password_confirmation: "123456")
+
 
 Shop.create!(name:  "Store 01",
              email: "store@gmail.com",
@@ -62,5 +69,6 @@ categories = Category.order(:id)
 5.times do
   categories.each { |p| ProductsCategory.create!(product_id: "#{Faker::Number.between(from: 1, to: 5)}", category_id: p.id)}
 end
+
 
 
