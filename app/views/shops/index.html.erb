@@ -1,26 +1,26 @@
 <% provide(:title, 'All Shops') %>
-<h1 class="title"> All Shop </h1>
-<button class="btn btn-outline-primary"><%= link_to 'New Shop', new_shop_path %></button>
-<div class="row mt-5">
-  <% @shop.each do |shop| %>
-    <div class="col-sm-4">
-      <div class="card mb-3 item-cart">
-        <div class="row no-gutters">
-          <div class="col-md-5 shop-cart">
-            <%= gravatar_for shop, size: 110 %>
-          </div>
-          <div class="col-md-7">
-            <div class="card-body">
-              <h5 class="card-title"><%= shop.name %> - <%= shop.id %></h5>
-              <p class="card-text">Email: <%= shop.email %> - Phone: <%= shop.phone %></p>
-              <p class="card-text"><small class="text-muted">Adress: <%= shop.address %></small></p>
-              <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', shop %></button>
+<div class="container">
+  <h1 class="title"> All Shop </h1>
+  <button class="btn btn-outline-primary"><%= link_to 'New Shop', new_shop_path %></button>
+  <div class="row mt-5">
+    <% @shop.each do |shop| %>
+      <div class="col-sm-4">
+        <div class="card mb-3 item-cart">
+          <div class="row no-gutters">
+            <div class="col-md-5 shop-cart">
+              <%= gravatar_for shop, size: 110 %>
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <h5 class="card-title"><%= shop.name %> - <%= shop.id %></h5>
+                <p class="card-text">Email: <%= shop.email %> - Phone: <%= shop.phone %></p>
+                <p class="card-text"><small class="text-muted">Adress: <%= shop.address %></small></p>
+                <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', shop %></button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
-<%#= will_paginate %>

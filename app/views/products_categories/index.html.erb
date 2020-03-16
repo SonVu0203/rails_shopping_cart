@@ -1,10 +1,18 @@
 <% provide(:title, 'Home') %>
-<h1 class="title"> <span class="text-green">By Sơn Vũ</span></h1>
+<% if logged_in? %>
+  <div style="margin-top: -20px"></div>
+  <%= render "products_categories/carousel" %>
+<% end %>
+
+<div class="mt-5">
+  <h1 class="title">KHUYẾN MÃI HOT NHẤT</h1>
+</div>
+<div class="diliver"></div>
 <% @categories.each do |c| %>
   <div class="row mt-5">
     <div class="container">
         <div class="card">
-          <div class="card-header bg-info">
+          <div class="card-header bg-cart">
             <p class="title-cart"><%= c.name %> - <%= c.products.count %> products</p>
           </div>
           <div class="card-body">

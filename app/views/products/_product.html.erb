@@ -12,6 +12,9 @@
       </div>
       <p class="card-text">Description: <%= product.description %>.</p>
       <button type="button" class="btn btn-outline-info"><%= link_to "Detail", product %></button>
+      <% if check_shop_is_loggin?(current_shop) %>
+        <button type="button" class="btn btn-outline-danger"><%= link_to "Delete", product, method: :delete, data: { confirm: "Are you want delete user?" } %></button>
+      <% end %>
     </div>
   </div>
 </div>

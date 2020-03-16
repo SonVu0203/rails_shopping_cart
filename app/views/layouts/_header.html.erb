@@ -1,61 +1,30 @@
-
-<header class="container">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <div class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <p class="nav-link" href="#"><%= link_to "Shop Cart", '#', id:'logo' %></p>
-
-        <%= form_tag(search_path, :method => "get", class: 'navbar-form navbar-left') do %>
-          <div class="input-group">
-            <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control mt-1 input-search" %>
-            <div class="input-group-btn">
-              <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <div id="the-basics">
-        <p class="typeahead">test</p>
-      </div>
-
-      <h5 class="mr-3"><%= link_to "Home", root_url, class: "text-white" %></h5>
-      <h5 class="mr-3"><%= link_to "Products", products_path, class: "text-white" %></h5>
-      <% if check_shop_is_loggin?(current_shop) %>
-        <h5 class="mr-3"><%= link_to "Shops",   shops_path, class: "text-white" %></h5>
-      <% end %>
-      <% if check_shop_is_loggin?(current_shop) %>
-        <h5 class="mr-3"><%= link_to "Categories",   categories_path, class: "text-white" %></h5>
-      <% else %>
-        <h5 class="dropdown mr-3 ml-1">
-          <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown">
-            Categories
-          </a>
-          <ul class="dropdown-menu">
-            <% categories.each do |c| %>
-              <li><%= link_to "#{c.name}", category_url(c.id) %></li>
-            <% end %>
-          </ul>
-        </h5>
-    <% end %>
-      <% if logged_in? %>
-        <h5 class="dropdown">
-          <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown">
-            About
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Profile", current_shop %></li>
-            <li class="divider"></li>
-            <li>
-              <%= link_to "Log out", logout_path, method: :delete %>
-            </li>
-          </ul>
-        </h5>
-      <% else %>
-        <h5><%= link_to "Log in", login_path %></h5>
-      <% end %>
-
-    </div>
-  </nav>
-</header>
-
+<nav class="navbar-expand-lg navbar-light header">
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item d-flex" style="margin-left: 6em;">
+        <p class="nav-link text-white info-header" href="#"><i class="fas fa-phone text-warning mr-2"></i>+(84)933381879</p>
+      </li>
+      <li class="nav-item ml-5">
+        <p class="nav-link text-white info-header" href="#"><i class="fas fa-envelope-open text-warning mr-2"></i>vuvanson0203@gmail.com</p>
+      </li>
+      <li class="nav-item ml-5">
+        <p class="nav-link text-white info-header">Thứ 2 - Thứ 6: 8:30 - 17:30</p>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <p><i class="fab fa-facebook text-white info-header"></i></p>
+    </span>
+    <span class="navbar-text" >
+      <p><i class="fab fa-google-plus text-white info-header"></i></p>
+    </span>
+    <% if logged_in? %>
+      <span class="navbar-text text-white" style="margin-right: 6em; margin-top: 10px">
+        <p><%= link_to "Log Out", logout_path, method: :delete, class: "text-white" %> <i class="fas fa-sign-in-alt"></i></p>
+      </span>
+    <% else %>
+      <span class="navbar-text text-white" style="margin-right: 6em; margin-top: 10px">
+        <p><%= link_to "Log In", login_path, class: "text-white" %> <i class="fas fa-sign-in-alt"></i></p>
+      </span>
+  <% end %>
+  </div>
+</nav>

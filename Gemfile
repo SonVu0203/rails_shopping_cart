@@ -20,6 +20,10 @@ gem 'carrierwave', '~> 2.0'
 #-------- phan trang
 gem 'kaminari-bootstrap'
 
+#----- font awesome
+gem 'font-awesome-sass', '~> 5.12.0'
+
+
 gem 'twitter-typeahead-rails'
 
 # Use Puma as the app server

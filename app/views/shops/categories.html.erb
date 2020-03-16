@@ -1,20 +1,23 @@
 <% provide(:title, 'Categories') %>
-<h1 class="title"> <span class="text-green">Categories</span> of <span class="text-pink"><%= @shop.name %></span></h1>
-<button type="button" class="btn btn-light"><%= link_to "Back", shop_path(@shop.id) %></button>
 
-<table class="table mt-5">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Name</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @categories.each do |c| %>
+<div class="container">
+  <h1 class="title">Danh sách Loại sản phẩm của cửa hàng: <span style="color: deeppink"><%= @shop.name %></span></h1>
+  <button type="button" class="btn btn-light"><%= link_to "Back", shop_path(@shop.id) %></button>
+
+  <table class="table mt-5">
+    <thead>
     <tr>
-      <td><%= c.id %></td>
-      <td><%= c.name %></td>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    <% @categories.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,27 +1,29 @@
 <% provide(:title, 'Categories') %>
-<h1 class="title"> <span class="text-green">Categories</span></h1>
-<button class="btn btn-outline-primary"><%= link_to 'New Category', new_category_url %></button>
+<div class="container">
+  <h1 class="title"> <span class="text-green">Categories</span></h1>
+  <button class="btn btn-outline-primary"><%= link_to 'New Category', new_category_url %></button>
 
-<table class="table mt-5">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @categories.each do |c| %>
+  <table class="table mt-5">
+    <thead>
     <tr>
-      <td><%= c.id %></td>
-      <td><%= c.name %></td>
-      <td>
-        <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', c %></button>
-        <% if check_shop_is_loggin?(current_shop) %>
-          <button type="button" class="btn btn-outline-danger"><%= link_to "Delete", c, method: :delete, data: { confirm: "Are you want delete user?" } %></button>
-      <% end %>
-      </td>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    <% @categories.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.name %></td>
+        <td>
+          <button type="button" class="btn btn-outline-success"><%= link_to 'Detail', c %></button>
+          <% if check_shop_is_loggin?(current_shop) %>
+            <button type="button" class="btn btn-outline-danger"><%= link_to "Delete", c, method: :delete, data: { confirm: "Are you want delete user?" } %></button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

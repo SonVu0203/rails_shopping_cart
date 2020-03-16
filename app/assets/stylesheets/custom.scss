@@ -55,9 +55,8 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $light-white;
+  color: #0B0B3B;
   text-transform: uppercase;
-  padding-top: 9px;
   font-weight: bold;
   &:hover {
     color: $light-pink;
@@ -150,7 +149,7 @@ input {
 .item-cart {
   min-height: 150px;
   &:hover {
-    background-color: #F5F6CE;
+    background-color: #EFFBFB;
   }
 }
 
@@ -164,12 +163,12 @@ input {
 
 .title-cart {
   font-size: 2em;
-  color: $light-blue;
+  color: white;
   text-transform: uppercase;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: $light-green;
+    color: $light-pink;
     text-decoration: none;
   }
 }
@@ -178,4 +177,27 @@ input {
   width: 200px !important;
 }
 
+.header {
+  font-size: 14px;
+  color: white !important;
+  height: 65px;
+  background-color: #0B0B3B;
+}
 
+.info-header {
+  &:hover {
+    color: orange !important;
+  }
+}
+
+.bg-cart {
+  background-color: #0B0B3B !important;
+}
+
+.diliver {
+  background-color: #0B0B3B;
+  height: 5px;
+  width: 100px;
+  border-radius: 5px;
+  margin: auto;
+}
