@@ -1,0 +1,25 @@
+<% provide(:title, @customer.name) %>
+
+<div class="container">
+  <h1 class="title">Thông tin tài khoản <span style="color: deeppink"><%= @customer.name %></span></h1>
+  <div class="row">
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-5 shop-cart">
+          <%= gravatar_for @customer, size: 110 %>
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h5 class="card-title"><%= @customer.name %> </h5>
+            <p class="card-text">Email: <%= @customer.email %> - Phone: <%= @customer.phone %></p>
+            <p class="card-text"><small class="text-muted">Adress: <%= @customer.address %></small></p>
+            <% if current_customer?(@customer) %>
+              <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_customer_path %></button>
+            <%end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :logged_in_shop, only: [:index, :edit, :update]
+  before_action :logged_in_shop, only: [:index, :show, :edit, :update]
   before_action :correct_shop, only: [:edit, :update]
 
 
@@ -46,7 +46,7 @@ class ShopsController < ApplicationController
   def logged_in_shop
     unless logged_in?
       flash[:danger] = "please log in"
-      redirect_to login_url
+      redirect_to shops_login_path
     end
   end
 
