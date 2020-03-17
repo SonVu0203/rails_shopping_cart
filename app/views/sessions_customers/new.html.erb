@@ -2,19 +2,17 @@
 <h1 class="title">Login</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <!--    should use form_for for login instead of form_with because if use form_for, when submid button with render 'new' will show debug to see-->
-    <%= form_for(:session, url: shops_login_path) do |f| %>
+    <%= form_for(:session, url: customers_login_path) do |f| %>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control mb-3' %>
 
       <%= f.label :password %>
-      <%= link_to "(forgot password)", new_password_reset_path %>
+      <%= link_to "(forgot password)", '#' %>
       <%= f.password_field :password, class: 'form-control mb-3' %>
 
       <%= f.submit "Log in", class: "btn btn-primary mb-3" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", shops_signup_path %></p>
+    <p>New customer? <%= link_to "Sign up now!", customers_signup_path %></p>
   </div>
 </div>
-

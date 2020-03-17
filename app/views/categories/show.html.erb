@@ -1,8 +1,12 @@
 <% provide(:title, 'Category') %>
 </div>
 <div class="container">
-  <button type="button" class="btn btn-outline-info"><%= link_to "Back", categories_path %></button>
-  <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_category_url(@category) %></button>
+  <% if logged_in? %>
+    <button type="button" class="btn btn-outline-info"><%= link_to "Back", categories_path %></button>
+    <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_category_url(@category) %></button>
+  <% elsif logged_in_customer?%>
+    <button type="button" class="btn btn-outline-info"><%= link_to "Back", products_categories_path %></button>
+<% end %>
 
   <h1 class="title">Category: <span style="color: deeppink"> <%= @category.name %></span> </h1>
   <div class="row">

@@ -17,14 +17,30 @@
     <span class="navbar-text" >
       <p><i class="fab fa-google-plus text-white info-header"></i></p>
     </span>
-    <% if logged_in? %>
-      <span class="navbar-text text-white" style="margin-right: 6em; margin-top: 10px">
-        <p><%= link_to "Log Out", logout_path, method: :delete, class: "text-white" %> <i class="fas fa-sign-in-alt"></i></p>
-      </span>
-    <% else %>
-      <span class="navbar-text text-white" style="margin-right: 6em; margin-top: 10px">
-        <p><%= link_to "Log In", login_path, class: "text-white" %> <i class="fas fa-sign-in-alt"></i></p>
-      </span>
+
+    <% if !logged_in_customer? %>
+      <% if logged_in? %>
+        <span class="navbar-text text-white" style="margin-right: 6em">
+          <p><%= link_to "LogOut Shop", shops_logout_path, method: :delete, class: "text-white" %> <i class="fas fa-sign-out-alt"></i></p>
+        </span>
+      <% else %>
+        <span class="navbar-text text-white">
+          <p><%= link_to "LogIn Shop", shops_login_path, class: "text-white" %> <i class="fas fa-sign-in-alt"></i></p>
+        </span>
+      <% end %>
   <% end %>
+
+    <% if !logged_in? %>
+      <% if logged_in_customer? %>
+        <span class="navbar-text text-white" style="margin-right: 6em">
+          <p><%= link_to "LogOut Customer", customers_logout_path, method: :delete, class: "text-white" %> <i class="fas fa-sign-out-alt"></i></p>
+        </span>
+      <% else %>
+        <span class="navbar-text text-white" style="margin-right: 6em">
+          <p><%= link_to "LogIn Customer", customers_login_path, class: "text-white" %> <i class="fas fa-sign-in-alt"></i></p>
+        </span>
+      <% end %>
+    <% end %>
+
   </div>
 </nav>

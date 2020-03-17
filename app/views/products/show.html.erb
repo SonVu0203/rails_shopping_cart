@@ -52,10 +52,11 @@
         </div>
       </div>
       <div class="dropdown-divider"></div>
-      <div class="btn-cart mt-5">
-        <p style="padding: 10px; color: white; background-color: #e8415a; width: 150px; border-radius: 5px; text-align: center; border-radius: 20px;"><b>Mua</b></p>
-      </div>
-
+      <% if logged_in_customer? %>
+        <div class="btn-cart mt-5">
+          <p style="padding: 10px; color: white; background-color: #e8415a; width: 150px; border-radius: 5px; text-align: center; border-radius: 20px;"><b>Mua</b></p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
