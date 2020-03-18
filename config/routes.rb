@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions_customers/new'
-  get 'customers/new'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
   get    '/shops/signup',           to: 'shops#new'
   get    '/shops/login',            to: 'sessions#new'
   get 'password_resets/new'
@@ -33,7 +30,15 @@ Rails.application.routes.draw do
   delete  '/customers/logout',               to: "sessions_customers#destroy"
 
   get '/customers/signup',                   to: 'customers#new'
+  resources :customers
 
-  resources :customers,                 only: [:new, :edit, :show ]
+  get 'sessions_customers/new'
   resources :sessions_customers
+
+  post   "cart_items/:id/add",                  to: "cart_items#add_quantity",      as: "cart_items_add"
+  post   "cart_items/:id/reduce",               to: "cart_items#reduce_quantity",   as: "cart_items_reduce"
+  resources :cart_items
+
+  get 'carts/show'
+  resources :carts,                    only: [:show, :destroy]
 end
