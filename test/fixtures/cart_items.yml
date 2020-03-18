@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: cart_items
+#
+#  id         :bigint           not null, primary key
+#  quantity   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  cart_id    :bigint           not null
+#  product_id :bigint           not null
+#
+# Indexes
+#
+#  index_cart_items_on_cart_id     (cart_id)
+#  index_cart_items_on_product_id  (product_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (cart_id => carts.id)
+#  fk_rails_...  (product_id => products.id)
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  cart: one
+  unit_price: 1
+  total_price: 1.5
+
+two:
+  product: two
+  cart: two
+  unit_price: 1
+  total_price: 1.5
