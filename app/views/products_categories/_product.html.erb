@@ -8,7 +8,7 @@
     <div class="card-body">
       <div style="display: flex; justify-content: space-between">
         <h5 class="card-title text-green"><b><%= product.name %></b></h5>
-        <p class="card-text"><b><span style="color: red">Price:</span> <%= product.price %> $ </b></p>
+        <p class="card-text"><b><span style="color: red">Price:</span> <%= number_to_currency product.price %></b></p>
       </div>
       <p class="card-text">Description: <%= product.description %>.</p>
       <button type="button" class="btn btn-outline-info"><%= link_to "Detail", product %></button>

@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <div class="container">
+    <p> Yow got a new order</p>
+    <h3> Order Detail </h3>
+    <div class="row">
+      <h4> Information Customer </h4>
+      <p>Name: <%= @order.name %></p>
+      <p>Email: <%= @order.email %></p>
+      <p>Address: <%= @order.address %></p>
+      <p>Phone: <%= @order.phone %></p>
+
+      <h4>Information Products</h4>
+      <% @order.cart_items.each do |cart_item| %>
+        <div class="cart_item">
+          <p>Product: <%= cart_item.product.name %></p>
+          <p>Quantity: <%= cart_item.quantity %></p>
+          <p>Price: <%= cart_item.product.price %></p>
+        </div>
+      <% end %>
+
+      <h4>Total order: <%= @order.sub_total %></h4>
+    </div>
+  </div>
+  </body>
+</html>
