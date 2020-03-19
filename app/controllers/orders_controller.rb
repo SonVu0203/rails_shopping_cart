@@ -24,10 +24,16 @@ class OrdersController < ApplicationController
       @order.tax_code = Faker::Number.number(digits: 6)
       # i.cart_id = nil
     end
-    @order.save
-    Cart.destroy(session[:cart_id])
-    session[:cart_id] = nil
-    redirect_to @order
+    if @order.save
+      flash[:success] = "Thank you for your order! We'll get contact you soon!"
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      OrderMailer.order_mail(@order).deliver
+      redirect_to @order
+    else
+      flash.now[:error] = "Your order form had some errors. Please check the form and resubmit."
+      render new
+    end
   end
 
   def logged_in_customer

@@ -16,7 +16,7 @@
     <div class="col-md-6">
       <div class="detail-customer" style="font-size: 16px; float: right; margin-top: 10px">
         <b style="margin-right: 5px">Tổng tiền:</b>
-        <span style="color: chartreuse "><%= @order.sub_total %>$</span>
+        <span style="color: chartreuse "><%= number_to_currency @order.sub_total %></span>
       </div>
     </div>
   </div>
@@ -70,8 +70,8 @@
               <img src="<%= ct.product.images[0].img_src %>" style="width: 25% !important;">
             </td>
             <td style="height: 100px; padding-top: 40px"><h4><%= ct.quantity %></h4></td>
-            <td style="height: 100px; padding-top: 40px"><h4 style="color: #0B0B3B; font-weight: 500"><%= ct.product.price %>$</h4></td>
-            <td style="height: 100px; padding-top: 40px"><h4 style="font-weight: 700; color: red"><%= ct.total_price %>$</h4></td>
+            <td style="height: 100px; padding-top: 40px"><h4 style="color: #0B0B3B; font-weight: 500"><%= number_to_currency ct.product.price %></h4></td>
+            <td style="height: 100px; padding-top: 40px"><h4 style="font-weight: 700; color: red"><%= number_to_currency ct.total_price %></h4></td>
           </tr>
         <% end %>
         </tbody>
