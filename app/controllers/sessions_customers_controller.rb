@@ -6,6 +6,9 @@ class SessionsCustomersController < ApplicationController
     customer = Customer.find_by(email: params[:session][:email].downcase)
     if customer && customer.authenticate(params[:session][:password])
       log_in_customer(customer)
+      if session[:shop_id]
+        session[:shop_id] = nil
+      end
       redirect_to customer
     else
       flash[:danger] = 'Invalid email/password'

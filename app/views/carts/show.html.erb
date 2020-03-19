@@ -24,7 +24,7 @@
       <% @cart.cart_items.each do |ct| %>
         <tr>
           <th scope="row" style="height: 100px; padding-top: 40px"><h4><%= ct.id %></h4></th>
-          <td style="height: 100px; padding-top: 40px"><h4><b><%= ct.product.name %> - ct<%=  ct.id %></b></h4></td>
+          <td style="height: 100px; padding-top: 40px"><h4><b><%= ct.product.name %></b></h4></td>
           <td style="height: 100px; padding-top: 20px">
             <img src="<%= ct.product.images[0].img_src %>" style="width: 25% !important;">
           </td>
@@ -61,7 +61,9 @@
       <h3 style="color: #0B0B3B; font-weight: 700">Total: <span style="color: red"><%= @cart.sub_total %>$</span> </h3>
     </div>
     <div class="btn-cart" style="float: right; margin-top: 10px; clear: both">
-      <p style="padding: 10px; color: white; background-color: #e8415a; width: 150px; border-radius: 5px; text-align: center; border-radius: 20px;"><b>Order</b></p>
+      <p style="padding: 10px; color: white; background-color: #e8415a; width: 150px; border-radius: 5px; text-align: center; border-radius: 20px;">
+        <%= link_to "Đặt Hàng", new_order_path, class: "text-white" %>
+      </p>
     </div>
   <% end %>
 </div>

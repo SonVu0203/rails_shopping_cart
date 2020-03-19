@@ -1,16 +1,20 @@
 # == Schema Information
 #
-# Table name: carts
+# Table name: orders
 #
 #  id         :bigint           not null, primary key
-#  total      :integer
+#  address    :string
+#  email      :string
+#  name       :string
+#  phone      :string
+#  tax_code   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Cart < ApplicationRecord
+class Order < ApplicationRecord
   has_many :cart_items
-  has_many :products, through: :cart_items
+
 
   def sub_total
     sum = 0
@@ -19,9 +23,4 @@ class Cart < ApplicationRecord
     end
     return  sum.round(2)
   end
-
-  def count_item
-    return self.cart_items.count
-  end
-
 end

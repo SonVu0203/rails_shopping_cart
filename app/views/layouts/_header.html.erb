@@ -13,14 +13,16 @@
     </ul>
 
     <span class="navbar-text" >
-      <p>
-        <%= link_to cart_path(@current_cart), class:"icon-cart" do %>
-          <i class="fas fa-cart-plus text-white info-header"></i>
-          <% if @current_cart.sub_total > 0 %>
-            <span style="background-color: red; color: white; padding: 0px 5px; font-size: 10px; border-radius: 50%; position: absolute; bottom: 8px; left: 12px; height: 25px"><%= @current_cart.count_item %></span>
+      <% if !logged_in? %>
+        <p>
+          <%= link_to cart_path(@current_cart), class:"icon-cart" do %>
+            <i class="fas fa-cart-plus text-white info-header"></i>
+            <% if @current_cart.sub_total > 0 %>
+              <span style="background-color: red; color: white; padding: 0px 5px; font-size: 10px; border-radius: 50%; position: absolute; bottom: 8px; left: 12px; height: 25px"><%= @current_cart.count_item %></span>
+            <% end %>
           <% end %>
-        <% end %>
-      </p>
+        </p>
+      <% end %>
     </span>
     <span class="navbar-text">
       <p><i class="fab fa-facebook text-white info-header"></i></p>
