@@ -1,0 +1,31 @@
+<% provide :title, "orders" %>
+
+<div class="container">
+  <h1 class="title">Lịch sử đơn hàng</h1>
+  <% @orders.each do |order| %>
+    <div class="info-order row" style="margin-bottom: 20px; margin-top: 20px; background-color: #0B0B3B; color: white; padding: 5px 2px">
+      <div class="col-md-6">
+        <div class="detail-order" style="font-size: 16px">
+          <b style="margin-right: 5px">Đơn hàng:</b>
+          <%= link_to "##{ order.tax_code }", order_path(order), class: "text-pink"%>
+        </div>
+        <div class="detail-order" style="font-size: 12px;">
+          <i style="margin-right: 5px">Ngày đặt:</i>
+          <i><%= Date.parse((order.created_at).to_s) %> <%= (order.created_at).strftime('%T') %></i>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-5 offset-7">
+          <div class="detail-customer" style="font-size: 16px;">
+            <b style="margin-right: 5px">Trạng thái:</b>
+            <span>Đang giao</span>
+          </div>
+          <div class="detail-customer" style="font-size: 16px;">
+            <b style="margin-right: 5px">Tổng tiền:</b>
+            <span style="color: chartreuse "><%= order.sub_total %>$</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

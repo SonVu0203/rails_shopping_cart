@@ -1,0 +1,7 @@
+<% provide :title, "new order" %>
+<% provide(:button_text, 'Create') %>
+
+<div class="container">
+  <h1 class="title">Thông tin giao hàng</h1>
+  <%= render "orders/form", order: @order, customer: @customer %>
+</div>

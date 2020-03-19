@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
 
     if session[:cart_id].nil?
       @current_cart = Cart.create
+      @current_cart.total = @current_cart.sub_total
       session[:cart_id] = @current_cart.id
     end
   end

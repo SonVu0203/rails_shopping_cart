@@ -41,4 +41,6 @@ Rails.application.routes.draw do
 
   get 'carts/show'
   resources :carts,                    only: [:show, :destroy]
+
+  resources :orders
 end

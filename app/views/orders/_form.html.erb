@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: order, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :name %>
+      <%= f.text_field :name, :value => customer.name, class: 'form-control mb-3' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, :value => customer.email, class: 'form-control mb-3' %>
+
+      <%= f.label :phone %>
+      <%= f.text_field :phone, :value => customer.phone, class: 'form-control mb-3' %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, :value => customer.address, class: 'form-control mb-3' %>
+
+
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

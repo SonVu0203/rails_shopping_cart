@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :logged_in_customer, only: [:index, :show, :edit, :update]
+  before_action :logged_in_customer, only: [:edit, :update]
 
   def new
     @customer = Customer.new
@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       flash[:success] = "User has create success"
-      redirect_to @customer
+      redirect_to root_path
     else
       render 'new'
     end

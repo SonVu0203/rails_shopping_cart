@@ -7,6 +7,9 @@ class SessionsController < ApplicationController
     if shop && shop.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in(shop)
+      if session[:customer_id]
+        session[:customer_id] = nil
+      end
       redirect_to shop
     else
       flash[:danger] = 'Invalid email/password'
