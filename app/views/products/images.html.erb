@@ -1,0 +1,25 @@
+<% provide :title, "images" %>
+
+<div class="container">
+  <h1 class="sign-up center title">Images</h1>
+  <div class="row">
+    <% @images.each do |i| %>
+      <div class="col-md-3" style="position: relative">
+        <img src="<%= i.img_src %>" style="width: 250px; padding: 5px; border: 1px solid #CCCCCC; border-radius: 5px; height: 200px">
+        <%= link_to image_path(i),  method: :delete, data: { confirm: "Are you want to delete image?"}  do %>
+          <i class="fas fa-minus-circle" style=" font-size: 25px; color: red; position: absolute; top: -10px; right: 12px"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="btn-cart mt-5">
+    <%= form_for @image, url: product_add_image_path, method: :post do |f| %>
+      <%= f.file_field :img_src, class: "input-file previewIMG", accept: 'image/jpeg,image/gif,image/png'  %>
+      <%= f.hidden_field :imageable_id, value: @product.id %>
+      <%= f.hidden_field :imageable_type, value: "Product" %>
+      <br/>
+      <%= f.submit action_name: "add_img" %>
+  <% end %>
+
+  </div>
+</div>

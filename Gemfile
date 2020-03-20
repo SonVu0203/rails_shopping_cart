@@ -15,7 +15,8 @@ gem 'bcrypt',         '3.1.12'
 gem 'faker',          '2.10.2'
 
 #--------  update avatar
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
 
 #-------- phan trang
 gem 'kaminari-bootstrap'
@@ -75,9 +76,10 @@ group :test do
   gem 'webdrivers'
 end
 
-# group :production do
-#   gem 'pg', '0.20.0'
-# end
+group :production do
+  gem 'pg', '0.20.0'
+  gem 'fog', '1.42'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

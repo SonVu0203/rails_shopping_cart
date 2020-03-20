@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :logged_in_shop, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.all.page(params[:page]).per(5)
+    @products = Product.all.page(params[:page]).per(6)
   end
 
   def show
@@ -11,8 +11,10 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.images.build
     @shop_id = current_shop.id
     @categories = current_shop.categories
+    @product_id = Product.last.id + 1
   end
 
   def edit
@@ -21,7 +23,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_shop.products.build(product_params)
-    if @product.save
+    if @product.valid?
+      @product.save
       flash[:success] = "New Product success!"
       redirect_to products_path
     else
@@ -52,8 +55,21 @@ class ProductsController < ApplicationController
     end
   end
 
+  def images
+    @images = Product.find(params[:id]).images
+    @product = Product.find(params[:id])
+    @image = Image.new
+  end
+
+  def add_img
+    @product = Product.find(params[:id])
+    Image.create(:img_src => params[:image][:img_src], :imageable_id => params[:image][:imageable_id], :imageable_type => params[:image][:imageable_type] )
+    # abort
+    redirect_to @product
+  end
+
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category_ids)
+    params.require(:product).permit(:name, :description, :price, :category_ids, images_attributes: [:id, :img_src, :imageable_id, :imageable_type])
   end
 end
