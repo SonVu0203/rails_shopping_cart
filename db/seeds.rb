@@ -58,9 +58,9 @@ end
 
 products = Product.order(:id)
 
-1.times do
-  img_src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQN_qcly4wZL66xPFC69LDkU_mB14WoCRcCiXG6pp-m7N0caOsy"
-  products.each { |p| Image.create!(imageable: p, img_src: img_src)}
+img_src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQN_qcly4wZL66xPFC69LDkU_mB14WoCRcCiXG6pp-m7N0caOsy"
+products.each do |p|
+  Image.create!(imageable: p, remote_img_src_url: img_src)
 end
 
 # ---------- render product for category

@@ -23,6 +23,7 @@
 class Product < ApplicationRecord
   belongs_to :shop
   has_many :images, as: :imageable, dependent: :destroy
+  accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['img_src'].blank? }
 
   has_many :products_categories
   has_many :categories, through: :products_categories

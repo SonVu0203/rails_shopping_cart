@@ -1,7 +1,7 @@
 <div class="col-md-4 mb-5">
   <div class="card item-cart">
     <% if product.images.length > 0 %>
-      <img src="<%= product.images[0].img_src %>" class="w-100" >
+      <img src="<%= product.images[0].img_src %>" class="w-100" style="height: 220px">
     <% else %>
       <img src="https://freshome.com/wp-content/uploads/2018/09/contemporary-exterior.jpg" class="w-100">
     <%end %>
@@ -12,9 +12,11 @@
       </div>
       <p class="card-text">Description: <%= product.description %>.</p>
       <button type="button" class="btn btn-outline-info"><%= link_to "Detail", product %></button>
-      <button class="btn">
-        <%= button_to "Add Cart", cart_items_path(product_id: product.id), class: 'btn btn-small btn-outline-primary' %>
-      </button>
+      <% if !logged_in? %>
+        <button class="btn">
+          <%= button_to "Add Cart", cart_items_path(product_id: product.id), class: 'btn btn-small btn-outline-primary' %>
+        </button>
+      <% end %>
     </div>
   </div>
 </div>

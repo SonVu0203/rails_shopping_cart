@@ -43,4 +43,14 @@ Rails.application.routes.draw do
   resources :carts,                    only: [:show, :destroy]
 
   resources :orders
+
+  resources :products do
+    member do
+      get :images
+    end
+  end
+
+  resources :images
+
+  post "products/:id/images/add",                to: "products#add_img",       as: "product_add_image"
 end

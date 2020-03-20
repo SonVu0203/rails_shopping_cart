@@ -15,6 +15,18 @@
       <%= f.label :price %>
       <%= f.text_field :price, class: 'form-control mb-3' %>
 
+      <% if product.id.nil? %>
+        <label tabindex="0" class="input-file-trigger mt-3">
+          <%= t ".image" %> <i class="fa fa-camera"></i>
+        </label>
+        <%= f.fields_for :images do |image_f| %>
+          <%= image_f.file_field :img_src, class: "input-file previewIMG" %>
+          <%= image_f.hidden_field :imageable_id, value: @product_id %>
+          <%= image_f.hidden_field :imageable_type, value: "product" %>
+        <% end %>
+      <% end %>
+
+      <%#= image_tag product.images , class: "image_cm preview-img" %>
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>
   </div>
