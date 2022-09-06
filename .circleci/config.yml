@@ -1,0 +1,23 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@1.1.2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:3.0.0
+      - image: mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: "12345678"
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+      - run:
+          name: set up db
+          command: bundle exec rails db:create db:migrate
+      - run:
+          name: run rspec
+          command: bundle exec rspec
